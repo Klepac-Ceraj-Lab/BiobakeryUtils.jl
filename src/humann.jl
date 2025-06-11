@@ -36,7 +36,7 @@ end
 
 function _gf_parse(gf)
     if contains(gf, '|') # indicates a taxon-stratified entry
-        (gf, tax) = split(gf, '|')
+        (gf, tax) = split(gf, ( x -> ((x == '|') | (x == '.')) ))
         if tax == "unclassified"
             tax = Taxon("unclassified")
         else
